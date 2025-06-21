@@ -10,7 +10,7 @@ Install Ryan as a global command so you can use it from anywhere:
 
 ```bash
 # Clone and setup
-git clone <your-repo-url>
+git clone git@github.com:EduardoGHdez/ryan-mcp.git
 cd ryan
 ./bin/setup
 
