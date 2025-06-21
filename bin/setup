@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+
+echo "🤖 Setting up Ryan MCP Server..."
+echo "================================="
+
+# Check if Ruby is installed
+if ! command -v ruby &> /dev/null; then
+    echo "❌ Ruby is not installed. Please install Ruby first."
+    exit 1
+fi
+
+# Check if Bundler is installed
+if ! command -v bundle &> /dev/null; then
+    echo "📦 Installing Bundler..."
+    gem install bundler
+fi
+
+# Install dependencies (run from project directory)
+echo "📦 Installing dependencies..."
+cd "$PROJECT_DIR"
+bundle install
+
+# Make scripts executable
+echo "🔧 Making scripts executable..."
+chmod +x "$PROJECT_DIR/bin/ryan"
+chmod +x "$PROJECT_DIR/bin/setup"
+
+echo ""
+echo "✅ Setup complete!"
+echo ""
+echo "🎉 Ryan is ready to go! Here's what you can do:"
+echo ""
+echo "1. Test Ryan locally:"
+echo "   cd \"$PROJECT_DIR\" && rake test"
+echo ""
+echo "2. Run Ryan MCP server:"
+echo "   \"$PROJECT_DIR/bin/ryan\""
+echo ""
+echo "3. Connect to Cursor:"
+echo "   Use path: $PROJECT_DIR/bin/ryan"
+echo ""
+echo "Happy coding! 🚀"

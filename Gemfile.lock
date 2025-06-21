@@ -1,0 +1,20 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    json_rpc_handler (0.1.1)
+    mcp (0.1.0)
+      json_rpc_handler (~> 0.1)
+    minitest (5.25.4)
+    rake (13.3.0)
+
+PLATFORMS
+  arm64-darwin-23
+  ruby
+
+DEPENDENCIES
+  mcp
+  minitest
+  rake
+
+BUNDLED WITH
+   2.6.7
